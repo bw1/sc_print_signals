@@ -1,0 +1,55 @@
+sudo: true
+#dist: bionic
+dist: Focal
+#language: perl
+language: Generic
+#cache:
+#  directories:
+#  - extlib
+#perl:
+#- "5.26"
+addons:
+  apt:
+    packages:
+    - irssi
+    - tree
+    - cpanminus
+    - libwww-perl
+    - libyaml-perl
+    - libyaml-libyaml-perl
+    - libjson-pp-perl
+    - libfile-slurper-perl
+    - ngircd
+#    - inspircd
+#    - libhtml-parser-perl
+#    - libxml-libxml-perl
+#    - libxml-simple-perl
+#    - libperl-prereqscanner-perl
+#    - libtest-fatal-perl
+#    - libmodule-info-perl
+#    - libdatetime-format-strptime-perl
+before_install:
+  #- sudo cpanm --quiet LWP::UserAgent
+  #- sudo cpanm --quiet LWP::Protocol::https
+  #- sudo cpanm --quiet YAML
+  #- sudo cpanm --quiet File::Slurper
+  #- sudo cpanm --quiet Perl::PrereqScanner
+  #- sudo cpanm --quiet Module::Info
+  #- sudo cpanm --quiet XML::LibXML::Simple
+  #- sudo cpanm --quiet YAML::XS
+install:
+- git clone -b master https://github.com/bw1/scripts.irssi.org.git
+- 'echo $PWD'
+- 'netstat -tlpen'
+#- 'sudo grep "bind address" /etc/inspircd/inspircd.conf'
+before_script:
+#- bash -ev init_google.sh
+#- bash -ev init_ontv.sh
+  #- 'tree ~'
+script:
+- perl runselfcheck.pl
+after_script:
+branches:
+  only:
+  - master
+
