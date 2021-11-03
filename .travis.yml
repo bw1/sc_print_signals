@@ -1,13 +1,13 @@
 sudo: true
-#dist: bionic
-dist: Focal
-#language: perl
+jobs:
+  include:
+    -
+      os: linux
+      dist: bionic
+    -
+      os: linux
+      dist: Focal
 language: Generic
-#cache:
-#  directories:
-#  - extlib
-#perl:
-#- "5.26"
 addons:
   apt:
     packages:
