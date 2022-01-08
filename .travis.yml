@@ -1,4 +1,7 @@
 sudo: true
+notifications:
+irc:
+  - "ircs://irc.libera.chat:6697/#test"
 jobs:
   include:
     -
